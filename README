@@ -1,0 +1,5 @@
+Gitviewer
+
+Gitviewer generates a static website showing all the git repositories on nightshift's internal server.
+
+Current goals are to generate an index page which lists each repository by name, displays it's description as stated in the repository's description file, and gives the date it was last pushed to the server (by accessing the directory's mtime). Each project will get it's own page with further information, including a link to clone the repository should it not be on the workstation the user is on. This site will only be available to those who have access to nightshift's network.
