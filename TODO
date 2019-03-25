@@ -1,0 +1,8 @@
+HTML
+Finish primary templates
+Replace placeholder text with variable placeholders
+Breakup templates into partial files
+
+SCRIPTING
+Create function which customizes description file on server side git init - to be placed either in git user's bash dotfiles or git-shell's git-shell-commands directory
+Write main script
