@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="assets/vendor/css/bootstrap.css">
   <title>Nightshift's Repositories</title>
+  <style>
+      .list-group-item {
+          padding: 0 1.25rem;
+      }
+  </style>
 </head>
 <body>
   <div class="container-fluid">
@@ -47,7 +52,7 @@
                 <div class="card-body tab-content" id="tab-content">
                     <div class="tab-pane fade show active" id="nav-master" role="tabpanel" aria-labeled-by="nav-master-tab">
                         <h2 class="card-title">Master Branch file list</h2>
-                        <ul class="list-group">
+                        <ul class="list-group list-group-flush">
                             <li class="list-group-item">A directory
                                 <ul class="list-group">
                                     <li class="list-group-item">file1</li>
@@ -66,7 +71,7 @@
                     </div> <!-- end tab pane -->
                     <div class="tab-pane fade" id="nav-exported-feature" role="tabpanel" aria-labeled-by="nav-exported-feature-tab">
                         <h2 class="card-title">Exported Feature Branch file list</h2>
-                        <ul class="list-group">
+                        <ul class="list-group list-group-flush">
                             <li class="list-group-item">A directory
                                 <ul class="list-group">
                                     <li class="list-group-item">file1</li>
