@@ -1,119 +1,132 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="../assets/vendor/css/bootstrap.css">
-  <title>Nightshift's Repositories</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/vendor/css/bootstrap.css">
+    <title>Nightshift's Repositories</title>
 </head>
+
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        <div class="jumbotron text-center">
-          <h1>A Repository</h1>
-          <p>The repository's short description, from .git/description. This file is not commitable or retrievable via git clone. It can be fairly long, so, the choice for markup matters. For now, we are using a &lt;p&gt;.</p>
-          <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" id="clonerepository3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clone this repository</button>
-             <div class="dropdown-menu" aria-labeled-by="clonerepository3">
-                 <div class="dropdown-item pr-1">
-                     Anonymous
-                     <div class="input-group input-group-sm">
-                         <input type="text" id="repo3-anon" class="form-control" value="git://servername/repository3.git" readonly>
-                         <div class="input-group-append">
-                             <button class="btn" data-clipboard-target="#repo3-anon"><img src="../assets/vendor/octicons/clippy.svg" alt=""></button>
-                         </div> <!-- end input-group-append -->
-                     </div> <!-- end input-group -->
-                 </div> <!-- end dropdown-item -->
-                 <div class="dropdown-item pr-1">
-                     Authenticated
-                     <div class="input-group input-group-sm">
-                         <input type="text" id="repo3-auth" class="form-control" value="user@servername:repository3.git" readonly>
-                         <div class="input-group-append">
-                             <button class="btn" data-clipboard-target="#repo3-auth"><img src="../assets/vendor/octicons/clippy.svg" alt=""></button>
-                         </div> <!-- end input-group-append -->
-                     </div> <!-- end input-group -->
-                 </div> <!-- end dropdown-item -->
-             </div> <!-- end dropdown-menu -->
-          </div> <!-- end dropdown -->
-        </div> <!-- end jumbotron -->
-      </div> <!-- end col -->
-    </div> <!-- end row -->
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h2>Readme</h2>
-                </div>
-                <div class="card-body">
-                    <p>This is the text of the README file for the repository, if it exists. Not all developers create a readme file, and of the ones that do, they don't all handle it the same way.</p>
-                    <p>Since we will be parsing this file into our pages, we will have to be very careful in out script to make sure we are able to handle all the ways we know of for developers to create their readme, and the way they name the file.</p>
-                    <p>Most developers create the readme as plain text or using some flavor of markdown. Other developers will use an html partitial, with and without markdown. To avoid having to write our own parser, will will make use of the cmark package, in the shell version anyway. If, or when, we port to perl, we will have to look for a different solution.</p>
-                    <p>Readme files can be very short, or very very long. Our template, and the script that uses it needs to be able to handle that.</p>
-                    <p>Our templates do not currently follow semantic HTML and that will need to be fixed, befor we start the process of readying them for the script.</p>
-                </div>
-            </div> <!-- end card -->
-        </div> <!-- end col -->
-    </div> <!-- end row -->
-    <div class="row">
-        <div class="col">
-            <div class="card mt-5">
-                <nav class="card-header">
-                    <h2>Branches</h2>
-                    <div class="nav nav-tabs card-header-tabs">
-                        <a href="#nav-master" class="nav-item nav-link active" id="nav-master-tab" data-toggle="tab" role="tab" aria-controls="nav-master" aria-selected="true">Master</a>
-                        <a href="#nav-exported-feature" class="nav-item nav-link" id="nav-exported-feature-tab" data-toggle="tab" role="tab" aria-controls="nav-exported-feature" aria-selected="true">Exported Feature</a>
-                        <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">Non-exported Feature</a>
-                        <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">Non-exported Feature2</a>
-                    </div>
-                </nav> <!-- end card-header -->
-                <div class="card-body tab-content" id="tab-content">
-                    <div class="tab-pane fade show active" id="nav-master" role="tabpanel" aria-labeled-by="nav-master-tab">
-                        <h2 class="card-title">Master Branch file list</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item py-0"><img class="file-directory mr-3" src="../assets/vendor/octicons/file-directory.svg" alt="">A directory
-                                <ul class="list-group">
-                                    <li class="list-group-item py-0">file1</li>
-                                    <li class="list-group-item py-0">file2</li>
-                                    <li class="list-group-item py-0">file3</li>
-                                    <li class="list-group-item py-0">file4</li>
-                                    <li class="list-group-item py-0">file5</li>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="col">
+                <div class="jumbotron text-center">
+                    <h1>A Repository</h1>
+                    <p>The repository's short description, from .git/description. This file is not commitable or retrievable via git clone. It can be fairly long, so, the choice for markup matters. For now, we are using a &lt;p&gt;.</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" id="clonerepository3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clone this repository</button>
+                        <div class="dropdown-menu" aria-labeled-by="clonerepository3">
+                            <div class="dropdown-item pr-1">
+                                Anonymous
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="repo3-anon" class="form-control" value="git://servername/repository3.git" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn" data-clipboard-target="#repo3-anon"><img src="../assets/vendor/octicons/clippy.svg" alt=""></button>
+                                    </div> <!-- end input-group-append -->
+                                </div> <!-- end input-group -->
+                            </div> <!-- end dropdown-item -->
+                            <div class="dropdown-item pr-1">
+                                Authenticated
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="repo3-auth" class="form-control" value="user@servername:repository3.git" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn" data-clipboard-target="#repo3-auth"><img src="../assets/vendor/octicons/clippy.svg" alt=""></button>
+                                    </div> <!-- end input-group-append -->
+                                </div> <!-- end input-group -->
+                            </div> <!-- end dropdown-item -->
+                        </div> <!-- end dropdown-menu -->
+                    </div> <!-- end dropdown -->
+                </div> <!-- end jumbotron -->
+            </div> <!-- end col -->
+        </header> <!-- end row -->
+        <main>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Readme</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>This is the text of the README file for the repository, if it exists. Not all developers create a readme file, and of the ones that do, they don't all handle it the same way.</p>
+                            <p>Since we will be parsing this file into our pages, we will have to be very careful in out script to make sure we are able to handle all the ways we know of for developers to create their readme, and the way they name
+                                the file.</p>
+                            <p>Most developers create the readme as plain text or using some flavor of markdown. Other developers will use an html partitial, with and without markdown. To avoid having to write our own parser, will will make use of
+                                the cmark package, in the shell version anyway. If, or when, we port to perl, we will have to look for a different solution.</p>
+                            <p>Readme files can be very short, or very very long. Our template, and the script that uses it needs to be able to handle that.</p>
+                            <p>Our templates do not currently follow semantic HTML and that will need to be fixed, befor we start the process of readying them for the script.</p>
+                        </div>
+                    </div> <!-- end card -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+            <div class="row">
+                <div class="col">
+                    <div class="card mt-5">
+                        <nav class="card-header">
+                            <h2>Branches</h2>
+                            <div class="nav nav-tabs card-header-tabs">
+                                <a href="#nav-master" class="nav-item nav-link active" id="nav-master-tab" data-toggle="tab" role="tab" aria-controls="nav-master" aria-selected="true">Master</a>
+                                <a href="#nav-exported-feature" class="nav-item nav-link" id="nav-exported-feature-tab" data-toggle="tab" role="tab" aria-controls="nav-exported-feature" aria-selected="true">Exported Feature</a>
+                                <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">Non-exported Feature</a>
+                                <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">Non-exported Feature2</a>
+                            </div>
+                        </nav> <!-- end card-header -->
+                        <div class="card-body tab-content" id="tab-content">
+                            <div class="tab-pane fade show active" id="nav-master" role="tabpanel" aria-labeled-by="nav-master-tab">
+                                <h2 class="card-title">Master Branch file list</h2>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item py-0"><img class="file-directory mr-3" src="../assets/vendor/octicons/file-directory.svg" alt="">A directory
+                                        <ul class="list-group">
+                                            <li class="list-group-item py-0">file1</li>
+                                            <li class="list-group-item py-0">file2</li>
+                                            <li class="list-group-item py-0">file3</li>
+                                            <li class="list-group-item py-0">file4</li>
+                                            <li class="list-group-item py-0">file5</li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-group-item py-0">file6</li>
+                                    <li class="list-group-item py-0">file7</li>
+                                    <li class="list-group-item py-0">file8</li>
+                                    <li class="list-group-item py-0">file9</li>
+                                    <li class="list-group-item py-0">file10</li>
                                 </ul>
-                            </li>
-                            <li class="list-group-item py-0">file6</li>
-                            <li class="list-group-item py-0">file7</li>
-                            <li class="list-group-item py-0">file8</li>
-                            <li class="list-group-item py-0">file9</li>
-                            <li class="list-group-item py-0">file10</li>
-                        </ul>
-                    </div> <!-- end tab pane -->
-                    <div class="tab-pane fade" id="nav-exported-feature" role="tabpanel" aria-labeled-by="nav-exported-feature-tab">
-                        <h2 class="card-title">Exported Feature Branch file list</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item py-0"><img class="file-directory mr-3" src="../assets/vendor/octicons/file-directory.svg" alt="">A directory
-                                <ul class="list-group">
-                                    <li class="list-group-item py-0">file1</li>
-                                    <li class="list-group-item py-0">file2</li>
-                                    <li class="list-group-item py-0">file3</li>
-                                    <li class="list-group-item py-0">file4</li>
-                                    <li class="list-group-item py-0">file5</li>
+                            </div> <!-- end tab pane -->
+                            <div class="tab-pane fade" id="nav-exported-feature" role="tabpanel" aria-labeled-by="nav-exported-feature-tab">
+                                <h2 class="card-title">Exported Feature Branch file list</h2>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item py-0"><img class="file-directory mr-3" src="../assets/vendor/octicons/file-directory.svg" alt="">A directory
+                                        <ul class="list-group">
+                                            <li class="list-group-item py-0">file1</li>
+                                            <li class="list-group-item py-0">file2</li>
+                                            <li class="list-group-item py-0">file3</li>
+                                            <li class="list-group-item py-0">file4</li>
+                                            <li class="list-group-item py-0">file5</li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-group-item py-0">file6</li>
+                                    <li class="list-group-item py-0">file7</li>
+                                    <li class="list-group-item py-0">file8</li>
+                                    <li class="list-group-item py-0">file9</li>
+                                    <li class="list-group-item py-0">file10</li>
                                 </ul>
-                            </li>
-                            <li class="list-group-item py-0">file6</li>
-                            <li class="list-group-item py-0">file7</li>
-                            <li class="list-group-item py-0">file8</li>
-                            <li class="list-group-item py-0">file9</li>
-                            <li class="list-group-item py-0">file10</li>
-                        </ul>
-                    </div> <!-- end tab pane -->
-                </div> <!-- end card-body -->
-            </div> <!-- end card -->
-        </div> <!-- end col -->
-    </div> <!-- end row -->
-  </div> <!-- end container -->
-  <script src="../assets/vendor/js/jquery.min.js"></script>
-  <script src="../assets/vendor/js/popper.min.js"></script>
-  <script src="../assets/vendor/js/bootstrap.js"></script>
-  <script src="../assets/vendor/js/clipboard.min.js"></script>
+                            </div> <!-- end tab pane -->
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </main>
+        <footer class="row">
+            <div class="col">
+                <!-- placeholder for now, find something better to put here -->
+                <p>Copyright 2019</p>
+            </div>
+        </footer>
+    </div> <!-- end container -->
+    <script src="../assets/vendor/js/jquery.min.js"></script>
+    <script src="../assets/vendor/js/popper.min.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/js/clipboard.min.js"></script>
 </body>
+
 </html>
