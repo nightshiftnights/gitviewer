@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/vendor/css/bootstrap.css">
+    <title>Nightshift's Repositories</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="col">
+                <div class="jumbotron text-center">
+                    <h1>Nightshift's git Respositories</h1>
+                    <!-- if project page -->
+                    <p>The repository's short description, from .git/description. This file is not commitable or retrievable via git clone. It can be fairly long, so, the choice for markup matters. For now, we are using a &lt;p&gt;.</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" id="clonerepository3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clone this repository</button>
+                        <div class="dropdown-menu" aria-labeled-by="clonerepository3">
+                            <div class="dropdown-item pr-1">
+                                Anonymous
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="repo3-anon" class="form-control" value="git://servername/repository3.git" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn" data-clipboard-target="#repo3-anon"><img src="../assets/vendor/octicons/clippy.svg" alt=""></button>
+                                    </div> <!-- end input-group-append -->
+                                </div> <!-- end input-group -->
+                            </div> <!-- end dropdown-item -->
+                            <div class="dropdown-item pr-1">
+                                Authenticated
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="repo3-auth" class="form-control" value="user@servername:repository3.git" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn" data-clipboard-target="#repo3-auth"><img src="../assets/vendor/octicons/clippy.svg" alt=""></button>
+                                    </div> <!-- end input-group-append -->
+                                </div> <!-- end input-group -->
+                            </div> <!-- end dropdown-item -->
+                        </div> <!-- end dropdown-menu -->
+                    </div> <!-- end dropdown -->
+                    <!-- end if -->
+                </div> <!-- end jumbotron -->
+            </div> <!-- end col -->
+        </header> <!-- end row -->
+        <main>
+            <div class="row">
+                <div class="col">
