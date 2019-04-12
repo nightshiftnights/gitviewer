@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="../assets/vendor/css/bootstrap.css">
     <title>Nightshift's Repositories</title>
     <style>
-        .directory {
-            cursor: pointer;
-            user-select: none; /* Prevent text selection */
+        ul.tree li ul {
+            display: none;
+        }
+        ul.tree li.open>ul {
+            display: flex;
+        }
+        ul.tree li a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -81,45 +86,45 @@
                         <div class="card-body tab-content" id="tab-content">
                             <div class="tab-pane fade show active" id="nav-master" role="tabpanel" aria-labeled-by="nav-master-tab">
                                 <h2 class="card-title">Master Branch file list</h2>
-                                <ul class="list-group list-group-flush">
-                                    <li class="directory list-group-item py-0"><img class="file-directory mr-3" src="../assets/vendor/octicons/file-directory.svg" alt="">A directory
-                                        <ul class="sub list-group d-none">
-                                            <li class="directory list-group-item py-0"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory
-                                                <ul class="sub list-group d-none">
-                                                    <li class="directory list-group-item py-0"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory2
-                                                        <ul class="sub list-group d-none">
-                                                            <li class="list-group-item.py-0">file9</li>
-                                                            <li class="list-group-item.py-0">file10</li>
-                                                            <li class="list-group-item.py-0">file11</li>
-                                                            <li class="list-group-item.py-0">file12</li>
-                                                            <li class="list-group-item.py-0">file13</li>
+                                <ul class="list-group list-group-flush tree">
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset"><img class="file-directory mr-3" src="../assets/vendor/octicons/file-directory.svg" alt="">A directory</a>
+                                        <ul class="list-group">
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory</a>
+                                                <ul class="list-group">
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory2</a>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file9</a></li>
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file10</a></li>
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file11</a></li>
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file12</a></li>
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file13</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li class="list-group-item py-0">file14</li>
-                                                    <li class="list-group-item py-0">file15</li>
-                                                    <li class="list-group-item py-0">file16</li>
-                                                    <li class="list-group-item py-0">file17</li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file14</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file15</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file16</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file17</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="directory list-group-item py-0"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory3
-                                                <ul class="sub list-group d-none">
-                                                    <li class="list-group-item.py-0">file18</li>
-                                                    <li class="list-group-item.py-0">file19</li>
-                                                    <li class="list-group-item.py-0">file20</li>
-                                                    <li class="list-group-item.py-0">file21</li>
-                                                    <li class="list-group-item.py-0">file22</li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory3</a>
+                                                <ul class="list-group">
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file18</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file19</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file20</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file21</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file22</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="list-group-item py-0">file1</li>
-                                            <li class="list-group-item py-0">file2</li>
-                                            <li class="list-group-item py-0">file3</li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file1</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file2</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file3</a></li>
                                         </ul>
                                     </li>
-                                    <li class="list-group-item py-0">file4</li>
-                                    <li class="list-group-item py-0">file5</li>
-                                    <li class="list-group-item py-0">file6</li>
-                                    <li class="list-group-item py-0">file7</li>
-                                    <li class="list-group-item py-0">file8</li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file4</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file5</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file6</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file7</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file8</a></li>
                                 </ul>
                             </div> <!-- end tab pane -->
                             <div class="tab-pane fade" id="nav-exported-feature" role="tabpanel" aria-labeled-by="nav-exported-feature-tab">
@@ -158,14 +163,23 @@
     <script src="../assets/vendor/js/bootstrap.js"></script>
     <script src="../assets/vendor/js/clipboard.min.js"></script>
     <script>
-        var toggler = document.getElementsByClassName("directory");
-        var i;
-
-        for (i = 0; i < toggler.length; i++) {
-            toggler[i].addEventListener("click", function() {
-            this.parentElement.querySelector(".sub").classList.toggle("d-none");
+    var tree = document.querySelectorAll('ul.tree a:not(:last-child)');
+    for (var i = 0; i < tree.length; i++) {
+        tree[i].addEventListener('click', function(e) {
+            var parent = e.target.parentElement;
+            var classList = parent.classList;
+            if (classList.contains("open")) {
+                classList.remove('open');
+                var opensubs = parent.querySelectorAll(':scope .open');
+                for (var i = 0; i < opensubs.length; i++) {
+                    opensubs[i].classList.remove('open');
+                }
+            } else {
+                classList.add('open');
+            }
+            e.preventDefault();
         });
-        }
+    }
     </script>
 </body>
 
