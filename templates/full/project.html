@@ -6,28 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../assets/vendor/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../assets/gitviewer.css">
     <title>Nightshift's Repositories</title>
-    <style>
-        ul.tree li ul {
-            display: none;
-        }
-        ul.tree li.open>ul {
-            display: flex;
-        }
-        ul.tree li a {
-            text-decoration: none;
-        }
-        .directory:before {
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            margin-right: 1rem;
-            color: inherit !important;
-            content: "\f07b";
-        }
-        .directory.open:before {
-            content: "\f07c";
-        }
-    </style>
 </head>
 
 <body>
@@ -173,25 +153,7 @@
     <script src="../assets/vendor/js/popper.min.js"></script>
     <script src="../assets/vendor/js/bootstrap.js"></script>
     <script src="../assets/vendor/js/clipboard.min.js"></script>
-    <script>
-    var tree = document.querySelectorAll('ul.tree a:not(:last-child)');
-    for (var i = 0; i < tree.length; i++) {
-        tree[i].addEventListener('click', function(e) {
-            var parent = e.target.parentElement;
-            var classList = parent.classList;
-            if (classList.contains("open")) {
-                classList.remove('open');
-                var opensubs = parent.querySelectorAll(':scope .open');
-                for (var i = 0; i < opensubs.length; i++) {
-                    opensubs[i].classList.remove('open');
-                }
-            } else {
-                classList.add('open');
-            }
-            e.preventDefault();
-        });
-    }
-    </script>
+    <script src="..assets/gitviewer.js"></script>
 </body>
 
 </html>
