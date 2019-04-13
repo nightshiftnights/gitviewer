@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../assets/vendor/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.css">
     <title>Nightshift's Repositories</title>
     <style>
         ul.tree li ul {
@@ -15,6 +16,16 @@
         }
         ul.tree li a {
             text-decoration: none;
+        }
+        .directory:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 1rem;
+            color: inherit !important;
+            content: "\f07b";
+        }
+        .directory.open:before {
+            content: "\f07c";
         }
     </style>
 </head>
@@ -87,11 +98,11 @@
                             <div class="tab-pane fade show active" id="nav-master" role="tabpanel" aria-labeled-by="nav-master-tab">
                                 <h2 class="card-title">Master Branch file list</h2>
                                 <ul class="list-group list-group-flush tree">
-                                    <li class="list-group-item py-0"><a href="#" class="text-reset"><img class="file-directory mr-3" src="../assets/vendor/octicons/file-directory.svg" alt="">A directory</a>
+                                    <li class="list-group-item py-0 directory"><a href="#" class="text-reset">A directory</a>
                                         <ul class="list-group">
-                                            <li class="list-group-item py-0"><a href="#" class="text-reset"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory</a>
+                                            <li class="list-group-item py-0 directory"><a href="#" class="text-reset">Sub-directory</a>
                                                 <ul class="list-group">
-                                                    <li class="list-group-item py-0"><a href="#" class="text-reset"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory2</a>
+                                                    <li class="list-group-item py-0 directory"><a href="#" class="text-reset">Sub-directory2</a>
                                                         <ul class="list-group">
                                                             <li class="list-group-item py-0"><a href="#" class="text-reset">file9</a></li>
                                                             <li class="list-group-item py-0"><a href="#" class="text-reset">file10</a></li>
@@ -106,7 +117,7 @@
                                                     <li class="list-group-item py-0"><a href="#" class="text-reset">file17</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="list-group-item py-0"><a href="#" class="text-reset"><img src="../assets/vendor/octicons/file-directory.svg" alt="" class="file-directory mr-3">Sub-directory3</a>
+                                            <li class="list-group-item py-0 directory"><a href="#" class="text-reset">Sub-directory3</a>
                                                 <ul class="list-group">
                                                     <li class="list-group-item py-0"><a href="#" class="text-reset">file18</a></li>
                                                     <li class="list-group-item py-0"><a href="#" class="text-reset">file19</a></li>
@@ -130,20 +141,20 @@
                             <div class="tab-pane fade" id="nav-exported-feature" role="tabpanel" aria-labeled-by="nav-exported-feature-tab">
                                 <h2 class="card-title">Exported Feature Branch file list</h2>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item py-0"><img class="file-directory mr-3" src="../assets/vendor/octicons/file-directory.svg" alt="">A directory
+                                    <li class="list-group-item py-0 directory"><a href="#" class="text-reset">A directory</a>
                                         <ul class="list-group">
-                                            <li class="list-group-item py-0">file1</li>
-                                            <li class="list-group-item py-0">file2</li>
-                                            <li class="list-group-item py-0">file3</li>
-                                            <li class="list-group-item py-0">file4</li>
-                                            <li class="list-group-item py-0">file5</li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file1</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file2</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file3</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file4</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file5</a></li>
                                         </ul>
                                     </li>
-                                    <li class="list-group-item py-0">file6</li>
-                                    <li class="list-group-item py-0">file7</li>
-                                    <li class="list-group-item py-0">file8</li>
-                                    <li class="list-group-item py-0">file9</li>
-                                    <li class="list-group-item py-0">file10</li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file6</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file7</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file8</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file9</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file10</a></li>
                                 </ul>
                             </div> <!-- end tab pane -->
                         </div> <!-- end card-body -->
