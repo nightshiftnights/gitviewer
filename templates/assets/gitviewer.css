@@ -17,3 +17,7 @@ ul.tree li a {
 .directory.open:before {
     content: "\f07c";
 }
+.tab-content > .tab-pane {
+    max-height: 75vh !important;
+    overflow-y: auto;
+}
