@@ -1,69 +1,161 @@
-            <div class="card">
-                <div class="card-header">
-                    <h2>Readme</h2>
-                </div>
-                <div class="card-body">
-                    <p>This is the text of the README file for the repository, if it exists. Not all developers create a readme file, and of the ones that do, they don't all handle it the same way.</p>
-                    <p>Since we will be parsing this file into our pages, we will have to be very careful in out script to make sure we are able to handle all the ways we know of for developers to create their readme, and the way they name
-                        the file.</p>
-                    <p>Most developers create the readme as plain text or using some flavor of markdown. Other developers will use an html partitial, with and without markdown. To avoid having to write our own parser, will will make use of
-                        the cmark package, in the shell version anyway. If, or when, we port to perl, we will have to look for a different solution.</p>
-                    <p>Readme files can be very short, or very very long. Our template, and the script that uses it needs to be able to handle that.</p>
-                    <p>Our templates do not currently follow semantic HTML and that will need to be fixed, befor we start the process of readying them for the script.</p>
-                </div>
-            </div> <!-- end card -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/vendor/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../assets/gitviewer.css">
+    <title>{{page_title}}</title>
+    <!-- page_title shall be site_name - repo_name -->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="col">
+                <div class="jumbotron text-center">
+                    <h1><a href="index.html" title="Back to index">{{repo_name}}</a></h1>
+                    <p>{{repo_description}}</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" id="{{id}}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clone this repository</button>
+                        <!-- id =clone{{repo_name}} -->
+                        <div class="dropdown-menu" aria-labeled-by="{{id}}">
+                            <div class="dropdown-item pr-1">
+                                {{server_name}}
+                                <!-- {{server_name}} should be one key of a hash -->
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="{{server_id}}" class="form-control" value="{{url}}" readonly>
+                                    <!-- server_id will be be created by concat repo_name and server_name -->
+                                    <!-- url comes from the above server hash, the value associated with the server_name key url should be clonabel ie git://servername/repository3.git -->
+                                    <div class="input-group-append">
+                                        <button class="btn" data-clipboard-target="#{{server_id}}"><img src="../assets/vendor/octicons/clippy.svg" alt=""></button>
+                                    </div> <!-- end input-group-append -->
+                                </div> <!-- end input-group -->
+                            </div> <!-- end dropdown-item -->
+                            <div class="dropdown-item pr-1">
+                                {{server_name}}
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="{{server_id}}" class="form-control" value="{{url}}" readonly>
+                                    <!-- user@servername:repository3.git -->
+                                    <div class="input-group-append">
+                                        <button class="btn" data-clipboard-target="#{{server_id}}"><img src="../assets/vendor/octicons/clippy.svg" alt=""></button>
+                                    </div> <!-- end input-group-append -->
+                                </div> <!-- end input-group -->
+                            </div> <!-- end dropdown-item -->
+                        </div> <!-- end dropdown-menu -->
+                    </div> <!-- end dropdown -->
+                </div> <!-- end jumbotron -->
             </div> <!-- end col -->
+        </header> <!-- end row -->
+        <main>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Readme</h2>
+                        </div>
+                        <div class="card-body">
+                            <!-- cmark output -->
+                        </div>
+                    </div> <!-- end card -->
+                </div> <!-- end col -->
             </div> <!-- end row -->
             <div class="row">
+                <div class="col">
+                    <div class="card mt-5" id="branches">
+                        <nav class="card-header">
+                            <h2>Branches</h2>
+                            <div class="nav nav-tabs card-header-tabs">
+                                <a href="#{{pane_id}}" class="nav-item nav-link active" id="{{tab_id}}" data-toggle="tab" role="tab" aria-controls="{{pane_id}}" aria-selected="true">{{branchname}}</a>
+                                <!-- pane_id = "nav"-branchname tab_id = pane_id"-tab" -->
+                                <a href="#{{pane_id}}" class="nav-item nav-link" id="{{tab_id}}" data-toggle="tab" role="tab" aria-controls="{{pane_id}}" aria-selected="true">{{branchname}}</a>
+                                <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">{{branchname}}</a>
+                                <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">{{branchname}}</a>
+                                <!-- Create this list by looping through the list of branches. Branches that are to be exported should look like <a href="#nav-exported-feature" class="nav-item nav-link" id="nav-exported-feature-tab" data-toggle="tab" role="tab" aria-controls="nav-exported-feature" aria-selected="true">Exported Feature</a> and branches that aren't exported should look like <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">Non-exported Feature</a> -->
+                            </div>
+                        </nav> <!-- end card-header -->
+                        <div class="card-body tab-content" id="tab-content">
+                            <div class="tab-pane fade show active" id="{{pane_id}}" role="tabpanel" aria-labeled-by="{{tab_id}}">
+                                <h3 class="card-title">{{branchname}} file list</h3>
+                                <ul class="list-group list-group-flush tree">
+                                    <li class="list-group-item py-0 directory"><a href="#" class="text-reset">A directory</a>
+                                        <ul class="list-group">
+                                            <li class="list-group-item py-0 directory"><a href="#" class="text-reset">Sub-directory</a>
+                                                <ul class="list-group">
+                                                    <li class="list-group-item py-0 directory"><a href="#" class="text-reset">Sub-directory2</a>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file9</a></li>
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file10</a></li>
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file11</a></li>
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file12</a></li>
+                                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file13</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file14</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file15</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file16</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file17</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item py-0 directory"><a href="#" class="text-reset">Sub-directory3</a>
+                                                <ul class="list-group">
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file18</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file19</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file20</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file21</a></li>
+                                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file22</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file1</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file2</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file4</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file5</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file6</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file7</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file8</a></li>
+                                </ul>
+                            </div> <!-- end tab pane -->
+                            <div class="tab-pane fade" id="nav-exported-feature" role="tabpanel" aria-labeled-by="nav-exported-feature-tab">
+                                <h2 class="card-title">Exported Feature Branch file list</h2>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item py-0 directory"><a href="#" class="text-reset">A directory</a>
+                                        <ul class="list-group">
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file1</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file2</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file3</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file4</a></li>
+                                            <li class="list-group-item py-0"><a href="#" class="text-reset">file5</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file6</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file7</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file8</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file9</a></li>
+                                    <li class="list-group-item py-0"><a href="#" class="text-reset">file10</a></li>
+                                </ul>
+                            </div> <!-- end tab pane -->
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </main>
+        <footer class="row">
             <div class="col">
-            <div class="card mt-5">
-                <nav class="card-header">
-                    <h2>Branches</h2>
-                    <div class="nav nav-tabs card-header-tabs">
-                        <a href="#nav-master" class="nav-item nav-link active" id="nav-master-tab" data-toggle="tab" role="tab" aria-controls="nav-master" aria-selected="true">Master</a>
-                        <a href="#nav-exported-feature" class="nav-item nav-link" id="nav-exported-feature-tab" data-toggle="tab" role="tab" aria-controls="nav-exported-feature" aria-selected="true">Exported Feature</a>
-                        <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">Non-exported Feature</a>
-                        <a href="#" class="nav-item nav-link disabled" tab-index="-1" aria-disabled="true">Non-exported Feature2</a>
-                    </div>
-                </nav> <!-- end card-header -->
-                <div class="card-body tab-content" id="tab-content">
-                    <div class="tab-pane fade show active" id="nav-master" role="tabpanel" aria-labeled-by="nav-master-tab">
-                        <h2 class="card-title">Master Branch file list</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item py-0"><img class="file-directory mr-3" src="assets/vendor/octicons/file-directory.svg" alt="">A directory
-                                <ul class="list-group">
-                                    <li class="list-group-item py-0">file1</li>
-                                    <li class="list-group-item py-0">file2</li>
-                                    <li class="list-group-item py-0">file3</li>
-                                    <li class="list-group-item py-0">file4</li>
-                                    <li class="list-group-item py-0">file5</li>
-                                </ul>
-                            </li>
-                            <li class="list-group-item py-0">file6</li>
-                            <li class="list-group-item py-0">file7</li>
-                            <li class="list-group-item py-0">file8</li>
-                            <li class="list-group-item py-0">file9</li>
-                            <li class="list-group-item py-0">file10</li>
-                        </ul>
-                    </div> <!-- end tab pane -->
-                    <div class="tab-pane fade" id="nav-exported-feature" role="tabpanel" aria-labeled-by="nav-exported-feature-tab">
-                        <h2 class="card-title">Exported Feature Branch file list</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item py-0"><img class="file-directory mr-3" src="assets/vendor/octicons/file-directory.svg" alt="">A directory
-                                <ul class="list-group">
-                                    <li class="list-group-item py-0">file1</li>
-                                    <li class="list-group-item py-0">file2</li>
-                                    <li class="list-group-item py-0">file3</li>
-                                    <li class="list-group-item py-0">file4</li>
-                                    <li class="list-group-item py-0">file5</li>
-                                </ul>
-                            </li>
-                            <li class="list-group-item py-0">file6</li>
-                            <li class="list-group-item py-0">file7</li>
-                            <li class="list-group-item py-0">file8</li>
-                            <li class="list-group-item py-0">file9</li>
-                            <li class="list-group-item py-0">file10</li>
-                        </ul>
-                    </div> <!-- end tab pane -->
-                </div> <!-- end card-body -->
-            </div> <!-- end card -->
+                <!-- placeholder for now, find something better to put here -->
+                <p>Copyright 2019</p>
+            </div> <!-- end col -->
+        </footer>
+    </div> <!-- end container -->
+    <script src="../assets/vendor/js/jquery.min.js"></script>
+    <script src="../assets/vendor/js/popper.min.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/js/clipboard.min.js"></script>
+    <script src="../assets/gitviewer.js"></script>
+</body>
+
+</html>
